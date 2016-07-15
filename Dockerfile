@@ -45,7 +45,7 @@ RUN \
     /tmp/* \
     /var/tmp/* && \
 
-  # make it possible to bower with root
+  # make it possible to run bower with root
   echo '{ "allow_root": true }' > /root/.bowerrc
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
