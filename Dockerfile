@@ -2,7 +2,7 @@ FROM atlassian/default-image:latest
 
 RUN \
 
-  # install JDK8
+  # install JDK 8
   sudo apt-get install --reinstall ca-certificates && \
   echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
   add-apt-repository -y ppa:webupd8team/java && \
