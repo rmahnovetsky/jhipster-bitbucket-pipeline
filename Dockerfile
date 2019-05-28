@@ -2,14 +2,18 @@ FROM atlassian/default-image:latest
 
 RUN \
 
-  # install JDK 8
-  sudo apt-get install --reinstall ca-certificates && \
-  echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
-  add-apt-repository -y ppa:webupd8team/java && \
-  apt-get update && \
-  apt-get install -y oracle-java8-installer && \
-  rm -rf /var/lib/apt/lists/* && \
-  rm -rf /var/cache/oracle-jdk8-installer && \
+  # Install OpenJDK-8
+	apt-get update && \
+    apt-get install -y openjdk-8-jdk && \
+    apt-get install -y ant && \
+    apt-get clean;
+
+# Fix certificate issues
+	apt-get update && \
+    apt-get install ca-certificates-java && \
+    apt-get clean && \
+    update-ca-certificates -f;
+
 
   # install utilities
   apt-get install -y \
@@ -23,8 +27,8 @@ RUN \
      build-essential &&\
 
   # install node
-  wget https://nodejs.org/dist/v5.6.0/node-v5.6.0.tar.gz && \
-  tar -zxvf node-v5.6.0.tar.gz && cd node-v5.6.0 && \
+  wget https://nodejs.org/dist/v6.9.0/node-v6.9.0.tar.gz && \
+  tar -zxvf node-v6.9.0.tar.gz && cd node-v6.9.0 && \
   ./configure && \
    make && \
    make install && \
@@ -48,5 +52,7 @@ RUN \
   # make it possible to run bower with root
   echo '{ "allow_root": true }' > /root/.bowerrc
 
-ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+#RUN export JAVA_HOME
 CMD ["bash"]
+
