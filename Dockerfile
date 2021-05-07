@@ -21,6 +21,3 @@ RUN pip3 --no-cache-dir install --upgrade awscli
 
 # git
 RUN apt-get -y install git
-
-# ansible
-RUN pip3 install ansible
