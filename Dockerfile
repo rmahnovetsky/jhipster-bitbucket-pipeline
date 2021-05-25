@@ -1,5 +1,9 @@
 FROM adoptopenjdk:11-jdk
 
+# fix  Tracker "idealTree" already exists on npm inst
+WORKDIR /usr/app
+COPY ./ /usr/app
+
 # node, npm
 RUN apt-get install -y curl
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
@@ -13,6 +17,11 @@ RUN apt-get update && \
         python3 \
         python3-pip \
         python3-setuptools \
+        python3-dev \
+        python3-virtualenv \
+        python3-venv \
+        python3-wheel \
+        virtualenv \
         groff \
         less \
     && pip3 install --upgrade pip \
