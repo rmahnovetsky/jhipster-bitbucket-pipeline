@@ -36,7 +36,7 @@ To test the docker image locally
 
 first build it
 ```
-docker build -t monojetski/jhipster-bitbucket .
+docker build -t monojetski/jhipster-bitbucket:16-apr-2024 .
 ```
 
 Run it and use bash shell
@@ -45,6 +45,10 @@ Run it and use bash shell
 docker run -it monojetski/jhipster-bitbucket:latest bash
 ```
 
+Add tag if forgotten in previous step
+```
+docker tag monojetski/jhipster-bitbucket:latest monojetski/jhipster-bitbucket:16-apr-2024
+```
 To push to docker hub
 
 ```

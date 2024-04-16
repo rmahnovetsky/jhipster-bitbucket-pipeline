@@ -6,9 +6,9 @@ COPY ./ /usr/app
 
 # node, npm
 RUN apt-get install -y curl
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt-get install -y nodejs \
-  && curl -L https://www.npmjs.com/install.sh | sh
+RUN curl -fsSL https://deb.nodesource.com/setup_21.x | bash -
+RUN apt-get install -y nodejs
+RUN curl -L https://www.npmjs.com/install.sh | sh
 RUN npm install -g grunt grunt-cli
 
 # for aws cli
@@ -24,6 +24,7 @@ RUN apt-get update && \
         virtualenv \
         groff \
         less \
+        docker-compose \
     && pip3 install --upgrade pip \
     && apt-get clean
 RUN pip3 --no-cache-dir install --upgrade awscli
