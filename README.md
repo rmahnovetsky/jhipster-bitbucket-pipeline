@@ -42,7 +42,7 @@ docker build -t monojetski/jhipster-bitbucket:16-apr-2024 .
 Run it and use bash shell
 
 ```
-docker run -it monojetski/jhipster-bitbucket:latest bash
+docker run -it monojetski/jhipster-bitbucket:16-apr-2024 bash
 ```
 
 Add tag if forgotten in previous step
@@ -53,5 +53,10 @@ To push to docker hub
 
 ```
 docker login registry.hub.docker.com
-docker push monojetski/jhipster-bitbucket:latest
+docker push monojetski/jhipster-bitbucket:16-apr-2024
+```
+
+To test
+```
+docker run -it -v /home/<local folder to mount>:/home monojetski/jhipster-bitbucket:1-may-2024 bash
 ```
