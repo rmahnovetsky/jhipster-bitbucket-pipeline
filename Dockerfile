@@ -17,6 +17,7 @@ RUN apt install software-properties-common -y
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt update
 RUN apt install python3.12 python3.12-venv python3.12-dev -y
+RUN apt install jq -y
 RUN python3.12 -m ensurepip --upgrade
 RUN pip3.12 install --upgrade pip setuptools wheel
 RUN pip3.12 install six==1.16.0
