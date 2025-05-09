@@ -22,6 +22,17 @@ RUN python3.12 -m ensurepip --upgrade
 RUN pip3.12 install --upgrade pip setuptools wheel
 RUN pip3.12 install six==1.16.0
 
+# Install Docker CLI
+RUN apt-get update && apt-get install -y docker.io
+
+RUN apt-get update && apt-get install -y docker.io
+
+# Install Docker Compose V2 plugin (from https://docs.docker.com/compose/install/linux/)
+ENV DOCKER_CONFIG=${DOCKER_CONFIG:-/root/.docker}
+RUN mkdir -p $DOCKER_CONFIG/cli-plugins \
+    && curl -SL https://github.com/docker/compose/releases/download/v2.36.0/docker-compose-linux-$(uname -m) -o $DOCKER_CONFIG/cli-plugins/docker-compose \
+    && chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+
 # awscli
 RUN apt-get clean
 RUN pip3.12 --no-cache-dir install --upgrade awscli

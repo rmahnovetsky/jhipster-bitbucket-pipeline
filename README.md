@@ -35,7 +35,8 @@ docker tag monojetski/jhipster-bitbucket:latest monojetski/jhipster-bitbucket:16
 To push to docker hub
 
 ```
-docker login registry.hub.docker.com
+docker login
+# doesn't work anymore -> docker login registry.hub.docker.com
 docker push monojetski/jhipster-bitbucket:16-apr-2024
 ```
 
