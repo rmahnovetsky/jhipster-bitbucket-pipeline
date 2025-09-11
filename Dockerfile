@@ -6,7 +6,7 @@ COPY ./ /usr/app
 
 # node, npm
 RUN apt-get install -y curl
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
 RUN apt-get install -y nodejs
 RUN curl -L https://www.npmjs.com/install.sh | sh
 RUN npm install -g grunt grunt-cli
