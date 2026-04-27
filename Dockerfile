@@ -1,4 +1,5 @@
-FROM eclipse-temurin:17-jdk-jammy
+ARG JDK_VERSION=17
+FROM eclipse-temurin:${JDK_VERSION}-jdk-jammy
 
 # fix  Tracker "idealTree" already exists on npm inst
 WORKDIR /usr/app
